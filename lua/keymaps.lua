@@ -54,18 +54,19 @@ keymap('n', '<leader>d', ':bd<CR>', default_opts)
 -- keymap('n', '<leader>cc', 'gcc', default_opts)
 -- keymap('n', '<leader>bc', 'gbc', default_opts)
 
-vim.api.nvim_set_keymap("n", "<leader>gr", "<cmd>lua vim.lsp.buf.rename()<CR>", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("n", "<leader>gd", "<cmd>lua vim.lsp.buf.definition()<CR>", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("n", "<leader>gh", "<cmd>lua vim.lsp.buf.hover()<CR>", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("n", "<leader>gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("n", "<leader>gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", {noremap = true, silent = true})
-vim.api.nvim_set_keymap("n", "<leader>gr", "<cmd>lua vim.lsp.buf.references()<CR>", {noremap = true, silent = true})
+keymap("n", "<leader>gr", "<cmd>lua vim.lsp.buf.rename()<CR>", {noremap = true, silent = true})
+keymap("n", "<leader>gd", "<cmd>lua vim.lsp.buf.definition()<CR>", {noremap = true, silent = true})
+keymap("n", "<leader>gh", "<cmd>lua vim.lsp.buf.hover()<CR>", {noremap = true, silent = true})
+keymap("n", "<leader>gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", {noremap = true, silent = true})
+keymap("n", "<leader>gi", "<cmd>lua vim.lsp.buf.implementation()<CR>", {noremap = true, silent = true})
+keymap("n", "<leader>gr", "<cmd>lua vim.lsp.buf.references()<CR>", {noremap = true, silent = true})
+
 -- diagnostic
 -- vim.api.nvim_set_keymap('n', 'go', '<cmd>lua vim.diagnostic.open_float()<CR>', vim.api.nvim_set_keymap)
 -- vim.api.nvim_set_keymap('n', 'gp', '<cmd>lua vim.diagnostic.goto_prev()<CR>', vim.api.nvim_set_keymap)
 -- vim.api.nvim_set_keymap('n', 'gn', '<cmd>lua vim.diagnostic.goto_next()<CR>', vim.api.nvim_set_keymap)
 
--- keymap('n', "<leader>ft", ":FloatermNew --name=myfloat --height=0.8 --width=0.7 --autoclose=2 fish <CR>", {noremap = true, silent = true})
+-- keymap('n', "<leader>tt", ":FloatermNew --name=myfloat --height=0.8 --width=0.7 --autoclose=2 fish <CR>", {noremap = true, silent = true})
 keymap('n', "t", ":FloatermToggle myfloat<CR>", {noremap = true, silent = true})
 keymap('t', "<Esc>", "<C-\\><C-n>:q<CR>", {noremap = true, silent = true})
 
@@ -88,17 +89,18 @@ keymap("n", "<F12>", "<Cmd>lua require'dap'.step_out()<CR>", {silent = true, nor
 local builtin = require('telescope.builtin')
 keymap('n', '<leader>ff', "<cmd>lua require('telescope.builtin').find_files()<cr>",  {silent = true, noremap = true})
 keymap('n', '<leader>fg', "<cmd>lua require('telescope.builtin').live_grep()<cr>",  {silent = true, noremap = true})
-keymap('n', '<leader>fv', "<cmd>lua require('telescope.builtin').grep_string()<cr>",  {silent = true, noremap = true})
+keymap('n', '<leader>fw', "<cmd>lua require('telescope.builtin').grep_string()<cr>",  {silent = true, noremap = true})
 keymap('n', '<leader>fb', "<cmd>lua require('telescope.builtin').buffers()<cr>",  {silent = true, noremap = true})
 keymap('n', '<leader>fh', "<cmd>lua require('telescope.builtin').help_tags()<cr>",  {silent = true, noremap = true})
 
+-- copilot
 vim.g.copilot_no_tab_map = true
-vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
 
 -- rust-tools
 keymap('n', '<leader>rr', "<cmd>RustRunnables<cr>",  {silent = true, noremap = true})
 
-vim.keymap.set('n', '<leader>ss', '<cmd>lua require("spectre").open()<CR>', { desc = "Open Spectre" })
-vim.keymap.set('n', '<leader>sv', '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', { desc = "Search current word" })
-vim.keymap.set('v', '<leader>sv', '<esc><cmd>lua require("spectre").open_visual()<CR>', { desc = "Search current word" })
-vim.keymap.set('n', '<leader>sp', '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', { desc = "Search on current file" })
+keymap('n', '<leader>ss', '<cmd>lua require("spectre").open()<CR>', { desc = "Open Spectre" })
+keymap('n', '<leader>sw', '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', { desc = "Search current word" })
+keymap('v', '<leader>sw', '<esc><cmd>lua require("spectre").open_visual()<CR>', { desc = "Search current word" })
+keymap('n', '<leader>sp', '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', { desc = "Search on current file" })
