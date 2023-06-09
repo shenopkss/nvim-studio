@@ -16,7 +16,7 @@ vim.opt.relativenumber = false -- add numbers to each line on the left side
 vim.opt.cursorline = true -- highlight cursor line underneath the cursor horizontally
 vim.opt.splitbelow = true -- open new vertical split bottom
 vim.opt.splitright = true -- open new horizontal splits right
--- vim.opt.termguicolors = true        -- enabl 24-bit RGB color in the TUI
+vim.opt.termguicolors = true        -- enabl 24-bit RGB color in the TUI
 vim.opt.showmode = true -- we are experienced, wo don't need the "-- INSERT --" mode hint
 
 -- Searching
@@ -26,7 +26,16 @@ vim.opt.ignorecase = true -- ignore case in searches by default
 vim.opt.smartcase = true -- but make it case sensitive if an uppercase is entered
 
 if vim.g.neovide then
-    vim.o.guifont = "JetBrainsMonoNerdFont:h12" -- text below applies for VimScript
+    vim.o.guifont = "JetBrainsMono Nerd Font Mono:h13" -- text below applies for VimScript
+    vim.g.neovide_input_use_logo = 1 -- enable use of the logo (cmd) key
+    vim.keymap.set('n', '<D-s>', ':w<CR>') -- Save
+    vim.keymap.set('v', '<D-c>', '"+y') -- Copy
+    vim.keymap.set('n', '<D-v>', '"+P') -- Paste normal mode
+    vim.keymap.set('v', '<D-v>', '"+P') -- Paste visual mode
+    vim.keymap.set('c', '<D-v>', '<C-R>+') -- Paste command mode
+    vim.keymap.set('i', '<D-v>', '<ESC>l"+Pli') -- Paste insert mode
+    -- vim.g.neovide_scroll_animation_length = 0
+    vim.g.neovide_cursor_animation_length = 0.1
 end
 
 --Set completeopt to have a better completion experience

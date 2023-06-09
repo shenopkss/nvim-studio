@@ -22,10 +22,10 @@ return require('packer').startup(function(use)
 
     use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons', config = [[require('configs.bufferline')]] }
 
-    use {'williamboman/mason.nvim', config = [[require('configs.mason')]] }
-    use {'williamboman/mason-lspconfig.nvim', config = [[require('configs.mason-lspconfig')]] }
-
+    use 'williamboman/mason.nvim'
+    use 'williamboman/mason-lspconfig.nvim'
     use 'neovim/nvim-lspconfig'
+
     use {'simrat39/rust-tools.nvim', config = [[require('configs.rust-tools')]] }
 
     use {

@@ -2,7 +2,7 @@ vim.opt.termguicolors = true
 require("bufferline").setup {
     options = {
         mode = "buffer",
-        separator_style = "slant",
+        -- separator_style = "slant",
         -- separator_style = "padded_slant",
         -- 使用 nvim 内置lsp
         diagnostics = "nvim_lsp",

@@ -91,3 +91,6 @@ keymap('n', '<leader>fg', "<cmd>lua require('telescope.builtin').live_grep()<cr>
 keymap('n', '<leader>fv', "<cmd>lua require('telescope.builtin').grep_string()<cr>",  {silent = true, noremap = true})
 keymap('n', '<leader>fb', "<cmd>lua require('telescope.builtin').buffers()<cr>",  {silent = true, noremap = true})
 keymap('n', '<leader>fh', "<cmd>lua require('telescope.builtin').help_tags()<cr>",  {silent = true, noremap = true})
+
+vim.g.copilot_no_tab_map = true
+vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
