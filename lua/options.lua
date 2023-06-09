@@ -34,8 +34,8 @@ if vim.g.neovide then
     vim.keymap.set('v', '<D-v>', '"+P') -- Paste visual mode
     vim.keymap.set('c', '<D-v>', '<C-R>+') -- Paste command mode
     vim.keymap.set('i', '<D-v>', '<ESC>l"+Pli') -- Paste insert mode
-    -- vim.g.neovide_scroll_animation_length = 0
-    vim.g.neovide_cursor_animation_length = 0.1
+    vim.g.neovide_scroll_animation_length = 0
+    vim.g.neovide_cursor_animation_length = 0
 end
 
 --Set completeopt to have a better completion experience

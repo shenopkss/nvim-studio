@@ -94,3 +94,11 @@ keymap('n', '<leader>fh', "<cmd>lua require('telescope.builtin').help_tags()<cr>
 
 vim.g.copilot_no_tab_map = true
 vim.api.nvim_set_keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
+
+-- rust-tools
+keymap('n', '<leader>rr', "<cmd>RustRunnables<cr>",  {silent = true, noremap = true})
+
+vim.keymap.set('n', '<leader>ss', '<cmd>lua require("spectre").open()<CR>', { desc = "Open Spectre" })
+vim.keymap.set('n', '<leader>sw', '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', { desc = "Search current word" })
+vim.keymap.set('v', '<leader>sw', '<esc><cmd>lua require("spectre").open_visual()<CR>', { desc = "Search current word" })
+vim.keymap.set('n', '<leader>sp', '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', { desc = "Search on current file" })

@@ -9,6 +9,8 @@ return require('packer').startup(function(use)
 
     use { 'voldikss/vim-floaterm', config = function() require('comment').setup() end }
 
+    use 'nvim-pack/nvim-spectre'
+
     use {'stevearc/aerial.nvim', config = [[require('configs.aerial')]] }
     use {'mfussenegger/nvim-dap', config = [[require('configs.dap')]] }
     use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap-ui"}, config = [[require('configs.dapui')]] }
