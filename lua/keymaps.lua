@@ -67,8 +67,11 @@ keymap("n", "<leader>gr", "<cmd>lua vim.lsp.buf.references()<CR>", {noremap = tr
 -- vim.api.nvim_set_keymap('n', 'gn', '<cmd>lua vim.diagnostic.goto_next()<CR>', vim.api.nvim_set_keymap)
 
 -- keymap('n', "<leader>tt", ":FloatermNew --name=myfloat --height=0.8 --width=0.7 --autoclose=2 fish <CR>", {noremap = true, silent = true})
-keymap('n', "t", ":FloatermToggle myfloat<CR>", {noremap = true, silent = true})
-keymap('t', "<Esc>", "<C-\\><C-n>:q<CR>", {noremap = true, silent = true})
+keymap('n', "<D-1>", ":FloatermToggle myfloat<CR>", {noremap = true, silent = true})
+keymap('v', "<D-1>", ":FloatermToggle myfloat<CR>", {noremap = true, silent = true})
+keymap('t', "<D-1>", "<C-\\><C-n>:q<CR>", {noremap = true, silent = true})
+
+-- keymap('t', "<Esc>", "<C-\\><C-n>:q<CR>", {noremap = true, silent = true})
 
 keymap("n", "<leader>xx", "<cmd>TroubleToggle<cr>", {silent = true, noremap = true})
 keymap("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>", {silent = true, noremap = true})
