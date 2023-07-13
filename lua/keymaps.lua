@@ -45,7 +45,6 @@ keymap("x", "J", ":move '>+1<CR>gv-gv", default_opts)
 -- keymap("n", "<Up>", ":resize -1<CR>", default_opts)
 -- keymap("n", "<Down>", ":resize +1<CR>", default_opts)
 
-keymap('n', '<leader>n', ':NvimTreeToggle<CR>', default_opts)
 -- keymap('n', '<leader>x', ':x<CR>', default_opts)
 keymap('n', '<leader>w', ':w<CR>', default_opts)
 keymap('n', '<leader>q', ':q<CR>', default_opts)
@@ -67,11 +66,27 @@ keymap("n", "<leader>gr", "<cmd>lua vim.lsp.buf.references()<CR>", {noremap = tr
 -- vim.api.nvim_set_keymap('n', 'gn', '<cmd>lua vim.diagnostic.goto_next()<CR>', vim.api.nvim_set_keymap)
 
 -- keymap('n', "<leader>tt", ":FloatermNew --name=myfloat --height=0.8 --width=0.7 --autoclose=2 fish <CR>", {noremap = true, silent = true})
-keymap('n', "<D-1>", ":FloatermToggle myfloat<CR>", {noremap = true, silent = true})
-keymap('v', "<D-1>", ":FloatermToggle myfloat<CR>", {noremap = true, silent = true})
-keymap('t', "<D-1>", "<C-\\><C-n>:q<CR>", {noremap = true, silent = true})
+keymap('n', "<D-2>", ":FloatermToggle myfloat<CR>", {noremap = true, silent = true})
+keymap('v', "<D-2>", ":FloatermToggle myfloat<CR>", {noremap = true, silent = true})
+keymap('t', "<D-2>", "<C-\\><C-n>:q<CR>", {noremap = true, silent = true})
 
--- keymap('t', "<Esc>", "<C-\\><C-n>:q<CR>", {noremap = true, silent = true})
+
+keymap('n', "<D-1>", ":NvimTreeToggle<CR>", {noremap = true, silent = true})
+keymap('n', '<leader>n', ':NvimTreeToggle<CR>', default_opts)
+
+keymap('n', "<D-d>", "yyp", {noremap = true, silent = true})
+keymap('n', "<D-c>", "yy", {noremap = true, silent = true})
+keymap('n', "<D-s>", ":w<cr>", {noremap = true, silent = true})
+
+keymap('i', "<C-a>", "<home>", {noremap = true, silent = true})
+keymap('i', "<C-e>", "<end>", {noremap = true, silent = true})
+keymap('i', "<C-f>", "<right>", {noremap = true, silent = true})
+keymap('i', "<C-b>", "<left>", {noremap = true, silent = true})
+
+keymap('n', "<leader>vi", ":e ~/.config/nvim/lua/keymaps.lua<cr>", {noremap = true, silent = true})
+keymap('n', "<leader>vs", ":source %<cr>", {noremap = true, silent = true})
+
+keymap('t', "<Esc>", "<C-\\><C-n>:q<CR>", {noremap = true, silent = true})
 
 keymap("n", "<leader>xx", "<cmd>TroubleToggle<cr>", {silent = true, noremap = true})
 keymap("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>", {silent = true, noremap = true})
@@ -101,9 +116,17 @@ vim.g.copilot_no_tab_map = true
 keymap("i", "<C-J>", 'copilot#Accept("<CR>")', { silent = true, expr = true })
 
 -- rust-tools
-keymap('n', '<leader>rr', "<cmd>RustRunnables<cr>",  {silent = true, noremap = true})
+keymap('n', '<leader>r', "<cmd>RustRunnables<cr>",  {silent = true, noremap = true})
+keymap('n', '<leader>b', "<cmd>RustDebuggables<cr>",  {silent = true, noremap = true})
 
 keymap('n', '<leader>ss', '<cmd>lua require("spectre").open()<CR>', { desc = "Open Spectre" })
 keymap('n', '<leader>sw', '<cmd>lua require("spectre").open_visual({select_word=true})<CR>', { desc = "Search current word" })
 keymap('v', '<leader>sw', '<esc><cmd>lua require("spectre").open_visual()<CR>', { desc = "Search current word" })
 keymap('n', '<leader>sp', '<cmd>lua require("spectre").open_file_search({select_word=true})<CR>', { desc = "Search on current file" })
+
+
+keymap('c', '<C-a>', '<Home>', {})
+keymap('c', '<C-e>', '<End>', {})
+keymap('c', '<C-b>', '<Left>', {})
+keymap('c', '<C-f>', '<Right>', {})
+keymap('c', '<C-d>', '<C-Delete>', {})
