@@ -1,8 +1,10 @@
 -- Hint: use `:h <option>` to figure out the meaning if needed
 -- vim.opt.clipboard = 'unnamedplus' -- use system clipboard
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
-vim.opt.mouse = 'a' -- allow the mouse to be used in Nvim
--- vim.opt.mouse = '' -- allow the mouse to be used in Nvim
+vim.opt.mouse = '' -- allow the mouse to be used in Nvim
+
+-- Theme
+vim.cmd("colorscheme kanagawa")
 
 -- Tab
 vim.opt.tabstop = 4 -- number of visual spaces per TAB
@@ -26,6 +28,7 @@ vim.opt.ignorecase = true -- ignore case in searches by default
 vim.opt.smartcase = true -- but make it case sensitive if an uppercase is entered
 
 if vim.g.neovide then
+    vim.opt.mouse = 'a' -- allow the mouse to be used in Nvim
     vim.o.guifont = "JetBrainsMono Nerd Font Mono:h13" -- text below applies for VimScript
     vim.g.neovide_input_use_logo = 1 -- enable use of the logo (cmd) key
     vim.keymap.set('n', '<D-s>', ':w<CR>') -- Save

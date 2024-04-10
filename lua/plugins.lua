@@ -13,7 +13,8 @@ return require('packer').startup(function(use)
 
     use {'stevearc/aerial.nvim', config = [[require('configs.aerial')]] }
     use {'mfussenegger/nvim-dap', config = [[require('configs.dap')]] }
-    use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap-ui"}, config = [[require('configs.dapui')]] }
+    use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"}, config = [[require('configs.dapui')]] }
+
     use 'nvim-lua/plenary.nvim'
 
     use { 'folke/trouble.nvim', require = 'nvim-tree/nvim-web-devicons', config = function() require('trouble').setup() end }
@@ -37,18 +38,17 @@ return require('packer').startup(function(use)
     }
 
     use {
-        'nvim-tree/nvim-tree.lua',
-        requires = {
-            'nvim-tree/nvim-web-devicons', -- optional, for file icons
-        },
-        config = [[require('configs.nvim-tree')]],
-        tag = 'nightly' -- optional, updated every week. (see issue #1193)
+      'nvim-tree/nvim-tree.lua',
+      requires = {
+        'nvim-tree/nvim-web-devicons', -- optional
+      },
     }
 
     use 'github/copilot.vim'
 
     -- You can alias plugin names
-    use {'dracula/vim', as = 'dracula', config=vim.cmd[[colorscheme dracula]]}
+    use {'maxmx03/dracula.nvim', as = 'dracula' }
+    use {'rebelot/kanagawa.nvim', as = 'kanagawa' }
 
     use {
         'nvim-lualine/lualine.nvim',
@@ -70,12 +70,11 @@ return require('packer').startup(function(use)
     use 'hrsh7th/cmp-buffer'                            
     use 'hrsh7th/vim-vsnip'
 
-    use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.1',
-        -- or                            , branch = '0.1.x',
-        requires = { {'nvim-lua/plenary.nvim'} },
-        config = [[require('configs.telescope')]] 
-    }
+use {
+  'nvim-telescope/telescope.nvim', tag = '0.1.6',
+-- or                            , branch = '0.1.x',
+  requires = { {'nvim-lua/plenary.nvim'} }
+}
 
 end)
 
