@@ -50,6 +50,7 @@ keymap('n', '<leader>w', ':w<CR>', default_opts)
 keymap('n', '<leader>q', ':q<CR>', default_opts)
 keymap('n', '<leader>d', ':bd<CR>', default_opts)
 
+
 -- keymap('n', '<leader>cc', 'gcc', default_opts)
 -- keymap('n', '<leader>bc', 'gbc', default_opts)
 
@@ -69,7 +70,7 @@ keymap("n", "<leader>gr", "<cmd>lua vim.lsp.buf.references()<CR>", {noremap = tr
 keymap('n', "<D-2>", ":FloatermToggle myfloat<CR>", {noremap = true, silent = true})
 keymap('v', "<D-2>", ":FloatermToggle myfloat<CR>", {noremap = true, silent = true})
 keymap('t', "<D-2>", "<C-\\><C-n>:q<CR>", {noremap = true, silent = true})
-
+keymap('t', "<Esc>", "<C-\\><C-n>:q<CR>", {noremap = true, silent = true})
 
 keymap('n', "<D-1>", ":NvimTreeToggle<CR>", {noremap = true, silent = true})
 keymap('n', '<leader>n', ':NvimTreeToggle<CR>', default_opts)
@@ -77,6 +78,7 @@ keymap('n', '<leader>n', ':NvimTreeToggle<CR>', default_opts)
 keymap('n', "<D-d>", "yyp", {noremap = true, silent = true})
 keymap('n', "<D-c>", "yy", {noremap = true, silent = true})
 keymap('n', "<D-s>", ":w<cr>", {noremap = true, silent = true})
+keymap('n', '<D-w>', ':bd<CR>', default_opts)
 
 keymap('i', "<C-a>", "<home>", {noremap = true, silent = true})
 keymap('i', "<C-e>", "<end>", {noremap = true, silent = true})
@@ -86,8 +88,6 @@ keymap('i', "<C-b>", "<left>", {noremap = true, silent = true})
 keymap('n', "<leader>vi", ":e ~/.config/nvim/lua/keymaps.lua<cr>", {noremap = true, silent = true})
 keymap('n', "<leader>vs", ":source %<cr>", {noremap = true, silent = true})
 
-keymap('t', "<Esc>", "<C-\\><C-n>:q<CR>", {noremap = true, silent = true})
-
 keymap("n", "<leader>xx", "<cmd>TroubleToggle<cr>", {silent = true, noremap = true})
 keymap("n", "<leader>xw", "<cmd>TroubleToggle workspace_diagnostics<cr>", {silent = true, noremap = true})
 keymap("n", "<leader>xd", "<cmd>TroubleToggle document_diagnostics<cr>", {silent = true, noremap = true})
@@ -96,7 +96,7 @@ keymap("n", "<leader>xq", "<cmd>TroubleToggle quickfix<cr>", {silent = true, nor
 keymap("n", "gR", "<cmd>TroubleToggle lsp_references<cr>", {silent = true, noremap = true})
 
 keymap("n", "<leader>m", "<cmd>AerialToggle!<cr>", {silent = true, noremap = true})
-
+keymap("n", "<D-3>", "<cmd>AerialToggle!<cr>", {silent = true, noremap = true})
 
 keymap("n", "<F5>", "<Cmd>lua require'dap'.continue()<CR>", {silent = true, noremap = true})
 keymap("n", "<F8>", "<Cmd>lua require'dap'.toggle_breakpoint()<CR>", {silent = true, noremap = true})
@@ -110,6 +110,10 @@ keymap('n', '<leader>fg', "<cmd>lua require('telescope.builtin').live_grep()<cr>
 keymap('n', '<leader>fw', "<cmd>lua require('telescope.builtin').grep_string()<cr>",  {silent = true, noremap = true})
 keymap('n', '<leader>fb', "<cmd>lua require('telescope.builtin').buffers()<cr>",  {silent = true, noremap = true})
 keymap('n', '<leader>fh', "<cmd>lua require('telescope.builtin').help_tags()<cr>",  {silent = true, noremap = true})
+
+keymap('n', '<D-f>', "<cmd>lua require('telescope.builtin').live_grep()<cr>",  {silent = true, noremap = true})
+keymap('n', '<D-p>', "<cmd>lua require('telescope.builtin').find_files()<cr>",  {silent = true, noremap = true})
+
 
 -- copilot
 vim.g.copilot_no_tab_map = true

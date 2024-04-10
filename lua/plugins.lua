@@ -7,13 +7,14 @@ return require('packer').startup(function(use)
     -- Packer can manage itself
     use 'wbthomason/packer.nvim'
 
-    use { 'voldikss/vim-floaterm', config = function() require('comment').setup() end }
+--     use {"akinsho/toggleterm.nvim", tag = '*', config = [[require('config.toggleterm')]] }
+    use {'voldikss/vim-floaterm' }
 
     use 'nvim-pack/nvim-spectre'
 
-    use {'stevearc/aerial.nvim', config = [[require('configs.aerial')]] }
-    use {'mfussenegger/nvim-dap', config = [[require('configs.dap')]] }
-    use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"}, config = [[require('configs.dapui')]] }
+    use {'stevearc/aerial.nvim', config = [[require('config.aerial')]] }
+    use {'mfussenegger/nvim-dap', config = [[require('config.dap')]] }
+    use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"}, config = [[require('config.dapui')]] }
 
     use 'nvim-lua/plenary.nvim'
 
@@ -23,26 +24,33 @@ return require('packer').startup(function(use)
 
     use { 'numToStr/Comment.nvim', config = function() require('comment').setup() end }
 
-    use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons', config = [[require('configs.bufferline')]] }
+    use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons', config = [[require('config.bufferline')]] }
 
     use 'williamboman/mason.nvim'
     use 'williamboman/mason-lspconfig.nvim'
     use 'neovim/nvim-lspconfig'
 
-    use {'simrat39/rust-tools.nvim', config = [[require('configs.rust-tools')]] }
+    use {'simrat39/rust-tools.nvim', config = [[require('config.rust-tools')]] }
 
     use {
         'nvim-treesitter/nvim-treesitter',
-        config = [[require('configs.treesitter')]],
+        config = [[require('config.treesitter')]],
         run = ':TSUpdate'
     }
 
-    use {
-      'nvim-tree/nvim-tree.lua',
-      requires = {
-        'nvim-tree/nvim-web-devicons', -- optional
-      },
-    }
+    use ({
+		'kyazdani42/nvim-tree.lua',
+		cmd = {
+			"NvimTreeClipboard",
+			"NvimTreeClose",
+			"NvimTreeFindFile",
+			"NvimTreeOpen",
+			"NvimTreeRefresh",
+			"NvimTreeToggle",
+		},
+		requires = 'kyazdani42/nvim-web-devicons',
+        config = [[require('config.nvim-tree')]],
+	})
 
     use 'github/copilot.vim'
 
@@ -53,11 +61,11 @@ return require('packer').startup(function(use)
     use {
         'nvim-lualine/lualine.nvim',
         requires = { 'nvim-tree/nvim-web-devicons', opt = true },
-        config = [[require('configs.lualine')]],
+        config = [[require('config.lualine')]],
     }
 
     -- Completion framework:
-    use {'hrsh7th/nvim-cmp', config = [[require('configs.cmp')]] }
+    use {'hrsh7th/nvim-cmp', config = [[require('config.cmp')]] }
 
     -- LSP completion source:
     use 'hrsh7th/cmp-nvim-lsp'
@@ -70,11 +78,16 @@ return require('packer').startup(function(use)
     use 'hrsh7th/cmp-buffer'                            
     use 'hrsh7th/vim-vsnip'
 
-use {
-  'nvim-telescope/telescope.nvim', tag = '0.1.6',
--- or                            , branch = '0.1.x',
-  requires = { {'nvim-lua/plenary.nvim'} }
-}
+    use {
+        'nvim-telescope/telescope.nvim', tag = '0.1.6',
+        -- or                            , branch = '0.1.x',
+        requires = { {'nvim-lua/plenary.nvim'} }
+    }
+
+    -- theme
+    use ({'sainnhe/sonokai'})
+    -- use ({'rebelot/kanagawa.nvim'})
+    -- use ({'folke/tokyonight.nvim'})
 
 end)
 
