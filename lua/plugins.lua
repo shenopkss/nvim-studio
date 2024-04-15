@@ -22,7 +22,7 @@ return require('packer').startup(function(use)
 
     -- use 'puremourning/vimspector'
 
-    use { 'numToStr/Comment.nvim', config = function() require('comment').setup() end }
+    use { 'numToStr/Comment.nvim', config = function() require('Comment').setup() end }
 
     use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons', config = [[require('config.bufferline')]] }
 
