@@ -4,7 +4,7 @@ vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 vim.opt.mouse = '' -- allow the mouse to be used in Nvim
 
 -- Theme
-vim.cmd("colorscheme sonokai")
+-- vim.cmd("colorscheme sonokai")
 
 -- Tab
 vim.opt.tabstop = 4 -- number of visual spaces per TAB

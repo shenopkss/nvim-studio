@@ -1,114 +1,91 @@
--- This file can be loaded by calling `lua require('plugins')` from your init.vim
-
--- Only required if you have packer configured as `opt`
-vim.cmd [[packadd packer.nvim]]
-
-return require('packer').startup(function(use)
-    -- Packer can manage itself
-    use 'wbthomason/packer.nvim'
-
---     use {"akinsho/toggleterm.nvim", tag = '*', config = [[require('config.toggleterm')]] }
-    use {'voldikss/vim-floaterm' }
-
-    use 'nvim-pack/nvim-spectre'
-
-    use {'stevearc/aerial.nvim', config = [[require('config.aerial')]] }
-    use {'mfussenegger/nvim-dap', config = [[require('config.dap')]] }
-    use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"}, config = [[require('config.dapui')]] }
-
-    use 'nvim-lua/plenary.nvim'
-
-    use { 'folke/trouble.nvim', require = 'nvim-tree/nvim-web-devicons', config = function() require('trouble').setup() end }
-
-    -- use 'puremourning/vimspector'
-
-    use { 'numToStr/Comment.nvim', config = function() require('Comment').setup() end }
-
-    use {'akinsho/bufferline.nvim', tag = "*", requires = 'nvim-tree/nvim-web-devicons', config = [[require('config.bufferline')]] }
-
-    use 'williamboman/mason.nvim'
-    use 'williamboman/mason-lspconfig.nvim'
-    use 'neovim/nvim-lspconfig'
-
-    use {'simrat39/rust-tools.nvim', config = [[require('config.rust-tools')]] }
-
-    use {
-        'nvim-treesitter/nvim-treesitter',
-        config = [[require('config.treesitter')]],
-        run = ':TSUpdate'
-    }
-
-    use ({
-		'kyazdani42/nvim-tree.lua',
-		cmd = {
-			"NvimTreeClipboard",
-			"NvimTreeClose",
-			"NvimTreeFindFile",
-			"NvimTreeOpen",
-			"NvimTreeRefresh",
-			"NvimTreeToggle",
-		},
-		requires = 'kyazdani42/nvim-web-devicons',
-        config = [[require('config.nvim-tree')]],
-	})
-
-    use 'github/copilot.vim'
-
-    -- You can alias plugin names
-    use {'maxmx03/dracula.nvim', as = 'dracula' }
-    use {'rebelot/kanagawa.nvim', as = 'kanagawa' }
-
-    use {
-        'nvim-lualine/lualine.nvim',
-        requires = { 'nvim-tree/nvim-web-devicons', opt = true },
-        config = [[require('config.lualine')]],
-    }
-
-    -- Completion framework:
-    use {'hrsh7th/nvim-cmp', config = [[require('config.cmp')]] }
-
-    -- LSP completion source:
-    use 'hrsh7th/cmp-nvim-lsp'
-
-    -- Useful completion sources:
-    use 'hrsh7th/cmp-nvim-lua'
-    use 'hrsh7th/cmp-nvim-lsp-signature-help'
-    use 'hrsh7th/cmp-vsnip'                             
-    use 'hrsh7th/cmp-path'                              
-    use 'hrsh7th/cmp-buffer'                            
-    use 'hrsh7th/vim-vsnip'
-
-    use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.6',
-        -- or                            , branch = '0.1.x',
-        requires = { {'nvim-lua/plenary.nvim'} }
-    }
-
-    -- theme
-    use ({'sainnhe/sonokai'})
-    -- use ({'rebelot/kanagawa.nvim'})
-    -- use ({'folke/tokyonight.nvim'})
-
-    -- db client
-    use {
-        "kndndrj/nvim-dbee",
-        requires = {
-            "MunifTanjim/nui.nvim",
-        },
-        run = function()
-            -- Install tries to automatically detect the install method.
-            -- if it fails, try calling it with one of these parameters:
-            --    "curl", "wget", "bitsadmin", "go"
-            require("dbee").install()
-        end,
-        config = function()
-            require("dbee").setup {
-                    sources = {
-                        require("dbee.sources").EnvSource:new("DBEE_CONNECTIONS"),
-                    },
-                }
-        end
-    }
-
-end)
-
+return {{'wbthomason/lazy.nvim'}, {'voldikss/vim-floaterm'}, {'nvim-pack/nvim-spectre'}, {
+    'stevearc/aerial.nvim',
+    config = function()
+        require('config.aerial')
+    end
+}, {
+    'mfussenegger/nvim-dap',
+    config = function()
+        require('config.dap')
+    end
+}, {
+    'nvim-neotest/nvim-nio',
+    config = function()
+        -- require('config.dap')
+    end
+}, {
+    'rcarriga/nvim-dap-ui',
+    requires = {'mfussenegger/nvim-dap', 'nvim-neotest/nvim-nio'},
+    config = function()
+        require('config.dapui')
+    end
+}, {'nvim-lua/plenary.nvim'}, {
+    'folke/trouble.nvim',
+    requires = 'nvim-tree/nvim-web-devicons',
+    config = function()
+        require('trouble').setup()
+    end
+}, {
+    'numToStr/Comment.nvim',
+    config = function()
+        require('Comment').setup()
+    end
+}, {
+    'akinsho/bufferline.nvim',
+    tag = "*",
+    requires = 'nvim-tree/nvim-web-devicons',
+    config = function()
+        require('config.bufferline')
+    end
+}, {'williamboman/mason.nvim'}, {'williamboman/mason-lspconfig.nvim'}, {'neovim/nvim-lspconfig'}, {
+    'simrat39/rust-tools.nvim',
+    config = function()
+        require('config.rust-tools')
+    end
+}, {
+    'nvim-treesitter/nvim-treesitter',
+    config = function()
+        require('config.treesitter')
+    end,
+    run = ':TSUpdate'
+}, {
+    'kyazdani42/nvim-tree.lua',
+    cmd = {"NvimTreeClipboard", "NvimTreeClose", "NvimTreeFindFile", "NvimTreeOpen", "NvimTreeRefresh", "NvimTreeToggle"},
+    requires = 'kyazdani42/nvim-web-devicons',
+    config = function()
+        require('config.nvim-tree')
+    end
+}, {'github/copilot.vim'}, -- You can alias plugin names
+{
+    'maxmx03/dracula.nvim',
+    as = 'dracula'
+}, {
+    'rebelot/kanagawa.nvim',
+    as = 'kanagawa'
+}, {
+    'nvim-lualine/lualine.nvim',
+    requires = {
+        'nvim-tree/nvim-web-devicons',
+        opt = true
+    },
+    config = function()
+        require('config.lualine')
+    end
+}, -- Completion framework:
+{
+    'hrsh7th/nvim-cmp',
+    config = function()
+        require('config.cmp')
+    end
+}, -- LSP completion source:
+{'hrsh7th/cmp-nvim-lsp'}, -- Useful completion sources:
+{'hrsh7th/cmp-nvim-lua'}, {'hrsh7th/cmp-nvim-lsp-signature-help'}, {'hrsh7th/cmp-vsnip'}, {'hrsh7th/cmp-path'},
+        {'hrsh7th/cmp-buffer'}, {'hrsh7th/vim-vsnip'}, {
+    'nvim-telescope/telescope.nvim',
+    tag = '0.1.6',
+    requires = {'nvim-lua/plenary.nvim'}
+}, -- theme
+-- {'sainnhe/sonokai'}, 
+-- { 'rebelot/kanagawa.nvim' },
+-- { 'folke/tokyonight.nvim' },
+{"Mofiqul/dracula.nvim"}}
