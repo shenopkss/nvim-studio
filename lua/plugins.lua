@@ -32,17 +32,22 @@ return {{'wbthomason/lazy.nvim'}, {'voldikss/vim-floaterm'}, {'nvim-pack/nvim-sp
     end
 }, {
     'akinsho/bufferline.nvim',
-    tag = "*",
+    tag = "v4.9.1",
     requires = 'nvim-tree/nvim-web-devicons',
     config = function()
         require('config.bufferline')
     end
-}, {'williamboman/mason.nvim'}, {'williamboman/mason-lspconfig.nvim'}, {'neovim/nvim-lspconfig'}, {
-    'simrat39/rust-tools.nvim',
-    config = function()
-        require('config.rust-tools')
-    end
-}, {
+}, 
+-- {'williamboman/mason.nvim'}, 
+-- {'williamboman/mason-lspconfig.nvim'}, 
+-- {'neovim/nvim-lspconfig'}, 
+-- {
+--     'simrat39/rust-tools.nvim',
+--     config = function()
+--         require('config.rust-tools')
+--     end
+-- }, 
+{
     'nvim-treesitter/nvim-treesitter',
     config = function()
         require('config.treesitter')
@@ -56,10 +61,11 @@ return {{'wbthomason/lazy.nvim'}, {'voldikss/vim-floaterm'}, {'nvim-pack/nvim-sp
         require('config.nvim-tree')
     end
 }, {'github/copilot.vim'}, -- You can alias plugin names
+-- {
+--     'maxmx03/dracula.nvim',
+--     as = 'dracula'
+-- }, 
 {
-    'maxmx03/dracula.nvim',
-    as = 'dracula'
-}, {
     'rebelot/kanagawa.nvim',
     as = 'kanagawa'
 }, {

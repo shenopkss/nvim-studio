@@ -1,5 +1,5 @@
-vim.g.mapleader = ";"
-vim.g.maplocalleader = ";"
+-- vim.g.mapleader = ";"
+-- vim.g.maplocalleader = ";"
 
 local keymap = vim.api.nvim_set_keymap
 local default_opts = { noremap = true, silent = true }
